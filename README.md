@@ -1,7 +1,7 @@
 # avaliacao-av2-pc-monitor
 avaliacao-av2-pc-monitor created by GitHub Classroom
 
-## Como comtribuir
+## Como contribuir
 - no final da mensagem de commit coloque #numerodaissue
 
 ## Dados que serão enviados do desktop para a aplicação Spring
