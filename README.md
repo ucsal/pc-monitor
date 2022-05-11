@@ -12,4 +12,5 @@ avaliacao-av2-pc-monitor created by GitHub Classroom
 - Monitoramento de Memória RAM
 - Monitoramento do uso de disco
 - Monitoramento da temperatura
+- Versão do java
 
