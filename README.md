@@ -1,6 +1,9 @@
 # avaliacao-av2-pc-monitor
 avaliacao-av2-pc-monitor created by GitHub Classroom
 
+## Como comtribuir
+- no final da mensagem de commit coloque #numerodaissue
+
 ## Dados que serão enviados do desktop para a aplicação Spring
 
 ### Dados:
@@ -19,3 +22,4 @@ avaliacao-av2-pc-monitor created by GitHub Classroom
 - https://www.geeksforgeeks.org/java-program-to-get-system-motherboard-serial-number-for-windows-and-linux-machine/
 - https://stackoverflow.com/questions/2777594/java-checking-if-pc-is-idle
 - https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/SystemTray.html
+
