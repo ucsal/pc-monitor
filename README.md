@@ -1,4 +1,4 @@
-# avaliacao-av2-pc-monitor
+# 💻 PC OBSERVER 👀
 avaliacao-av2-pc-monitor created by GitHub Classroom
 
 ## Como contribuir
