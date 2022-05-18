@@ -7,7 +7,7 @@ avaliacao-av2-pc-monitor created by GitHub Classroom
 ## Dados que serão enviados do desktop para a aplicação Spring
 
 ### Dados:
-- Usuário Logado
+- ✅ Usuário Logado
 - Verificar conexão com internet para usuário logado
 - Nome do PC (Código identificador)
 - Status do Processador (porcentagem de uso)
@@ -15,7 +15,8 @@ avaliacao-av2-pc-monitor created by GitHub Classroom
 - Monitoramento de Memória RAM
 - Monitoramento do uso de disco
 - Monitoramento da temperatura
-- Versão do java
+- ✅ Versão do java
+- ✅ Sistema operacional
 
 ## Links
 - https://www.twilio.com/blog/5-ways-to-make-http-requests-in-java
