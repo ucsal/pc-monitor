@@ -9,7 +9,7 @@ avaliacao-av2-pc-monitor created by GitHub Classroom
 ### Dados:
 - ✅ Usuário Logado
 - Verificar conexão com internet para usuário logado
-- Nome do PC (Código identificador)
+- ✅ Nome do PC (Código identificador)
 - Status do Processador (porcentagem de uso)
 - Status da GPU (porcentagem de uso)
 - Monitoramento de Memória RAM
