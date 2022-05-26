@@ -2,12 +2,25 @@ package com.pcobserver;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.net.URL;
+import java.net.UnknownHostException;
+import java.text.ParseException;
+
+import com.pcobserver.utils.getData;
 
 
 public class Start {
 
 	public static void main(String[] args) {
+		
+		try {
+			System.out.println(getData.getHostName());
+		} catch (UnknownHostException e) {
+	
+		}
+			
+
 		new Start();
 	}
 	public Start() {
