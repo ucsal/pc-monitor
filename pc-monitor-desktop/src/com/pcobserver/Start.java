@@ -20,7 +20,9 @@ public class Start {
 		System.out.println(getData.getJavaVersion());
 		System.out.println(getData.getUserName());
 		try {			
-			System.out.println(getData.getCpuUsage());
+			System.out.println("CPU usage: "+ getData.getCpuUsagePercent() + "%");
+			System.out.println("Free RAM: " + getData.getFreeRamMemory());
+			System.out.println("total RAM: " + getData.getTotalRamMemory());
 		} catch (IOException e) {
 			System.out.println(e);
 		}
