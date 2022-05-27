@@ -4,6 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.net.URL;
+import java.net.UnknownHostException;
+import java.text.ParseException;
+
+import com.pcobserver.utils.getData;
 
 import com.pcobserver.utils.getData;
 
@@ -11,6 +15,7 @@ import com.pcobserver.utils.getData;
 public class Start {
 
 	public static void main(String[] args) {
+
 		System.out.println(getData.getOsName());
 		System.out.println(getData.getJavaVersion());
 		System.out.println(getData.getUserName());
@@ -20,6 +25,7 @@ public class Start {
 			System.out.println(e);
 		}
 //		new Start();
+
 	}
 	
 	public Start() {

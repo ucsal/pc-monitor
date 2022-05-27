@@ -3,6 +3,9 @@ package com.pcobserver.utils;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 
 public class getData {
 	public static String getOsName() {
@@ -32,4 +35,13 @@ public class getData {
 
 		return null;
 	}
+	
+	
+	public static String getHostName() throws UnknownHostException {
+
+		 return InetAddress.getLocalHost().getHostName();
+		
+	}
+	
+	
 }
