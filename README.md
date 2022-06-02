@@ -24,3 +24,4 @@ avaliacao-av2-pc-monitor created by GitHub Classroom
 - https://stackoverflow.com/questions/2777594/java-checking-if-pc-is-idle
 - https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/SystemTray.html
 - https://lucid.app/lucidchart/ac9b7ccb-6000-4e5b-bbac-099106e236e5/edit?invitationId=inv_c65df957-7730-4265-bd47-25abcd4a8c87
+- ICON - https://drive.google.com/drive/folders/12uWt9AvsQc4pvhiIgEBNqynPcgnReE3h?usp=sharing
