@@ -15,15 +15,34 @@ public class User {
     private String login;
 
     @ManyToMany
-    private List<Pc> pc_ids;
+    @Column(name = "pc_ids")
+    private List<Pc> pcIds;
 
     public User(Long id, String login, Pc pc_id) {
         this.id = id;
         this.login = login;
-        this.pc_ids.add(pc_id);
+        this.pcIds.add(pc_id);
     }
 
-    public User() {
+    public User() {}
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public List<Pc> getPcIds() {
+        return pcIds;
+    }
+
+    public void setPcIds(List<Pc> pcIds) {
+        this.pcIds = pcIds;
     }
 }

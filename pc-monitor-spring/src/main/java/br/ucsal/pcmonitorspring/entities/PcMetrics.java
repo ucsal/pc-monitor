@@ -8,43 +8,47 @@ public class PcMetrics {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pc_metrics_id;
+    @Column(name = "pc_metrics_id")
+    private Long id;
 
     @OneToOne
-    @JoinColumn(nullable = false)
-    private Pc pc_id;
+    @JoinColumn(nullable = false, name = "pc")
+    private Pc pc;
 
-    private String cpu_use;
 
-    private String memory_use;
+    @Column(name = "cpu_use")
+    private String cpuUSe;
+
+    @Column(name = "memory_use")
+    private String memoryUse;
 
     public PcMetrics() {}
 
-    public Pc getPc_id() {
-        return pc_id;
+    public Pc getPc() {
+        return pc;
     }
 
-    public Long getPc_metrics_id() {
-        return pc_metrics_id;
+    public Long getId() {
+        return id;
     }
 
-    public void setPc_id(Pc pc_id) {
-        this.pc_id = pc_id;
+    public void setPc(Pc pc) {
+        this.pc = pc;
     }
 
-    public String getCpu_use() {
-        return cpu_use;
+    public String getCpuUSe() {
+        return cpuUSe;
     }
 
-    public void setCpu_use(String cpu_use) {
-        this.cpu_use = cpu_use;
+    public void setCpuUSe(String cpuUSe) {
+        this.cpuUSe = cpuUSe;
     }
 
-    public String getMemory_use() {
-        return memory_use;
+    public String getMemoryUse() {
+        return memoryUse;
     }
 
-    public void setMemory_use(String memory_use) {
-        this.memory_use = memory_use;
+    public void setMemoryUse(String memoryUse) {
+        this.memoryUse = memoryUse;
     }
 }

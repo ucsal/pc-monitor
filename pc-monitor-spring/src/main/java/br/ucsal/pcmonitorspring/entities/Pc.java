@@ -10,11 +10,17 @@ public class Pc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String identifier_cod;
-    private String java_version;
 
-    private String total_memory;
+    @Column(name = "identifier_cod")
+    private String identifierCod;
 
+    @Column(name = "java_version")
+    private String javaVersion;
+
+    @Column(name = "total_memory")
+    private String totalMemory;
+
+    @Column(name = "os")
     private String os;
 
     @ManyToMany
@@ -22,26 +28,44 @@ public class Pc {
 
     public Pc() {}
 
-    public Pc(String identifier_cod, String java_version, User user) {
-        this.identifier_cod = identifier_cod;
-        this.java_version = java_version;
-        this.users.add(user);
+    public Pc(String identifierCod, String javaVersion, String totalMemory, String os, List<User> users) {
+        this.identifierCod = identifierCod;
+        this.javaVersion = javaVersion;
+        this.totalMemory = totalMemory;
+        this.os = os;
+        this.users = users;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getTotal_memory() {
-        return total_memory;
+    public String getIdentifierCod() {
+        return identifierCod;
     }
 
-    public void setTotal_memory(String total_memory) {
-        this.total_memory = total_memory;
+    public void setIdentifierCod(String identifierCod) {
+        this.identifierCod = identifierCod;
     }
 
-    public Long getId() {
-        return id;
+    public String getJavaVersion() {
+        return javaVersion;
+    }
+
+    public void setJavaVersion(String javaVersion) {
+        this.javaVersion = javaVersion;
+    }
+
+    public String getTotalMemory() {
+        return totalMemory;
+    }
+
+    public void setTotalMemory(String totalMemory) {
+        this.totalMemory = totalMemory;
     }
 
     public String getOs() {
@@ -58,30 +82,5 @@ public class Pc {
 
     public void setUsers(List<User> users) {
         this.users = users;
-    }
-
-    public String getIdentifier_cod() {
-        return identifier_cod;
-    }
-
-    public void setIdentifier_cod(String identifier_cod) {
-        this.identifier_cod = identifier_cod;
-    }
-
-    public String getJava_version() {
-        return java_version;
-    }
-
-    public void setJava_version(String java_version) {
-        this.java_version = java_version;
-    }
-
-    @Override
-    public String toString() {
-        return "Pc{" +
-                "id=" + id +
-                ", identifier_cod='" + identifier_cod + '\'' +
-                ", java_version='" + java_version + '\'' +
-                '}';
     }
 }
