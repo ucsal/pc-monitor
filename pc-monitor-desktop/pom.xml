@@ -4,6 +4,16 @@
   <artifactId>pcobserver</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>pc observer</name>
+  
+  <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+  <dependencies>
+	<dependency>
+	    <groupId>com.google.code.gson</groupId>
+	    <artifactId>gson</artifactId>
+	    <version>2.9.0</version>
+	</dependency>
+  </dependencies>
+
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>

@@ -6,9 +6,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.text.ParseException;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import com.google.gson.Gson;
+import com.pcobserver.models.Metrics;
+import com.pcobserver.models.PC;
 import com.pcobserver.utils.getData;
-
+import com.pcobserver.utils.sendRequest;
 import com.pcobserver.utils.getData;
 
 
@@ -16,17 +21,34 @@ public class Start {
 
 	public static void main(String[] args) {
 
-		System.out.println(getData.getOsName());
-		System.out.println(getData.getJavaVersion());
-		System.out.println(getData.getUserName());
-		try {			
-			System.out.println("CPU usage: "+ getData.getCpuUsagePercent() + "%");
-			System.out.println("Free RAM: " + getData.getFreeRamMemory());
-			System.out.println("total RAM: " + getData.getTotalRamMemory());
+		
+			
+		
+		try {
+			String json ="";
+			json = new Gson().toJson(new PC(getData.getHostName(),getData.getJavaVersion()));
+			sendRequest.executePost("http://localhost:8080/api",json);
 		} catch (IOException e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
-//		new Start();
+		
+		Timer timer = new Timer();
+		timer.scheduleAtFixedRate(new TimerTask() {
+		  @Override
+		  public void run() {
+				
+				try {
+					String json ="";
+					json = new Gson().toJson(new Metrics(String.valueOf(getData.getCpuUsagePercent()) ,String.valueOf(getData.getFreeRamMemory())) );
+					sendRequest.executePost("http://localhost:8080/api",json);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+		  }
+		}, 0, 5*(1000*60));
+		new Start();
 
 	}
 	
