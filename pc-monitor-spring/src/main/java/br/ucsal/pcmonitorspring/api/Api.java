@@ -1,21 +1,35 @@
 package br.ucsal.pcmonitorspring.api;
 
+import br.ucsal.pcmonitorspring.entities.Pc;
 import br.ucsal.pcmonitorspring.entities.PcMetrics;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.web.bind.annotation.GetMapping;
+import br.ucsal.pcmonitorspring.repositories.PcMetricsRepository;
+import br.ucsal.pcmonitorspring.repositories.PcRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
 public class Api {
+    @Autowired
+    private PcRepository pcRepository;
+    @Autowired
+    private PcMetricsRepository metricsRepository;
 
-    @GetMapping ("/pcMetrics")
-    public void pcMetrics() throws JsonProcessingException {
-        String jsonTeste = "{\"nome\":\"PC de Teste\"}";
-        ObjectMapper mapper = new ObjectMapper();
-        PcMetrics metrics = mapper.readValue(jsonTeste, PcMetrics.class);
-        System.out.println(metrics);
+    @PostMapping("/pcMetrics")
+    public ResponseEntity pcMetrics(@RequestBody PcMetrics metrics){
+        metricsRepository.save(metrics);
+        return ResponseEntity.ok(HttpStatus.OK);
     }
+
+    @PostMapping(value ="/pc", consumes = "application/json", produces = "application/json")
+    public ResponseEntity pc(@RequestBody Pc pc){
+        pcRepository.save(pc);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
 }

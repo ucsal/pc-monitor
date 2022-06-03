@@ -1,78 +1,50 @@
 package br.ucsal.pcmonitorspring.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@JsonIgnoreProperties({"id_pc", "register_time", "cpu_use", "internet_status", "gpu_use", "memory_use", "disc_use", "temperature"})
 @Entity
 @Table(name = "pc_metrics")
 public class PcMetrics {
+
     @Id
-    @Column(name = "id_pc", nullable = false)
-    private Long id_pc;
-    @Column(name = "name", length = 30, nullable = false)
-    private String name;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long pc_metrics_id;
 
-    @Column(name = "register_time", length = 30, nullable = false)
-    private String register_time;
+    @OneToOne
+    @JoinColumn(nullable = false)
+    private Pc pc_id;
 
-    @Column(name = "cpu_use", length = 30, nullable = false)
     private String cpu_use;
 
-    @Column(name = "internet_status", length = 30, nullable = false)
-    private String internet_status;
-
-    @Column(name = "gpu_use", length = 30, nullable = false)
-    private String gpu_use;
-
-    @Column(name = "memory_use", length = 30, nullable = false)
     private String memory_use;
 
-    @Column(name = "disc_use", length = 30, nullable = false)
-    private String disc_use;
-
-    @Column(name = "temperature", length = 30, nullable = false)
-    private String temperature;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public PcMetrics() {}
-    public PcMetrics(String nome){
-        this.name = nome;
+
+    public Pc getPc_id() {
+        return pc_id;
     }
 
-    public Long getId_pc() {
-        return id_pc;
+    public Long getPc_metrics_id() {
+        return pc_metrics_id;
     }
 
-    public void setId_pc(Long id_pc) {
-        this.id_pc = id_pc;
+    public void setPc_id(Pc pc_id) {
+        this.pc_id = pc_id;
     }
 
-    public String getNome() {
-        return name;
+    public String getCpu_use() {
+        return cpu_use;
     }
 
-    public void setNome(String nome) {
-        this.name = nome;
+    public void setCpu_use(String cpu_use) {
+        this.cpu_use = cpu_use;
     }
 
-    @Override
-    public String toString() {
-        return "PcMetrics{" +
-                "nome='" + name + '\'' +
-                '}';
+    public String getMemory_use() {
+        return memory_use;
+    }
+
+    public void setMemory_use(String memory_use) {
+        this.memory_use = memory_use;
     }
 }
