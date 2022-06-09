@@ -19,21 +19,40 @@ public class getData {
 	public static String getUserName() {
 		return System.getProperty("user.name");
 	}
-
-	public static String getCpuUsage() throws IOException {
-		Process process;
-		
-
-		process = Runtime.getRuntime().exec("wmic cpu get loadpercentage");
+	
+	private static String getFromTerminal(String command) throws IOException {
+		Process process = Runtime.getRuntime().exec(command);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-		
-		String line = "";
-	    while ((line = reader.readLine()) != null) {
-	        System.out.println(line);
-	        if(!line.contains("LoadPercentage")) return line;
+		String[] arr = command.split(" ");
+		String ignore = arr[arr.length-1];
+	    while (true) {
+	    	String str = reader.readLine();
+	    	if(!str.trim().equalsIgnoreCase(ignore) && !str.isBlank()) {
+	    		return str.trim();
+	    	}
 	    }
+	}
+	/**
+	 * run a command in terminal to retrieve CPU usage percentage data
+	 * 
+	 * @return CPU usage percentage 
+	 * **/
+	public static Integer getCpuUsagePercent() throws IOException {
+		 return  Integer.valueOf(getFromTerminal("wmic cpu get loadpercentage"));
 
-		return null;
+	}
+	/**
+	 * run a command in terminal to retrieve free memory ram data
+	 * @return free memory RAM in kb
+	 * **/
+	public static Integer getFreeRamMemory() throws IOException {
+	   return  Integer.valueOf(getFromTerminal("wmic os get freephysicalmemory"));
+	}
+	/**run a command in terminal to retrieve total memory ram data
+	 * @return total memory RAM in kb
+	 * **/
+	public static Long getTotalRamMemory() throws IOException {
+		 return  Long.valueOf(getFromTerminal("wmic ComputerSystem get TotalPhysicalMemory"))/1024;
 	}
 	
 	
