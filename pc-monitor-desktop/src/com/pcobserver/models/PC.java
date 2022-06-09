@@ -2,14 +2,14 @@ package com.pcobserver.models;
 
 public class PC {
 	
-	String hostname;
+	String idenfierCod;
 	String javaVersion;
-	String OSname;
-	String totalRAMmemory;
+	String os;
+	String totalMemory;
 	
 	public PC(String hostname, String javaVersion) {
 		super();
-		this.hostname = hostname;
+		this.idenfierCod = hostname;
 		this.javaVersion = javaVersion;
 	}
 	

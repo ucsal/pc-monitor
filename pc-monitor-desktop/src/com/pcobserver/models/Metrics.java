@@ -2,14 +2,14 @@ package com.pcobserver.models;
 
 public class Metrics {
 	
-	String cpuUsagePercentage;
-	String FreeRamMemory;
+	String cpuUse;
+	String freeMemory;
 	
 	
 	public Metrics(String cpuUsagePercentage, String freeRamMemory) {
 		super();
-		this.cpuUsagePercentage = cpuUsagePercentage;
-		this.FreeRamMemory = freeRamMemory;
+		this.cpuUse = cpuUsagePercentage;
+		this.freeMemory = freeRamMemory;
 	}
 
 }
