@@ -2,9 +2,10 @@ package br.ucsal.pcmonitorspring.api;
 
 import br.ucsal.pcmonitorspring.entities.Pc;
 import br.ucsal.pcmonitorspring.entities.PcMetrics;
-import br.ucsal.pcmonitorspring.model.PcRequest;
+import br.ucsal.pcmonitorspring.model.PcMetricsDTO;
 import br.ucsal.pcmonitorspring.repositories.PcMetricsRepository;
 import br.ucsal.pcmonitorspring.repositories.PcRepository;
+import br.ucsal.pcmonitorspring.services.PcMetricsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,22 +17,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class Api {
-	
+
     @Autowired
     private PcRepository pcRepository;
-    
-    @Autowired
-    private PcMetricsRepository metricsRepository;
 
-    @PostMapping(value ="/pcMetrics", consumes = "application/json", produces = "application/json")
-    public ResponseEntity pcMetrics(@RequestBody PcMetrics metrics) {
-//    	Pc pc = pcRepository.findByIdentifierCod(metrics.getPc().getIdentifierCod())
-//    	metrics.getPc().setId(pc.getId());
-//    	metricsRepository.save(metrics);
-        return ResponseEntity.ok(HttpStatus.OK);
+    @Autowired
+    PcMetricsService service;
+
+    /*
+    * Usando essa rota, o cliente deve especificar três métricas de PcMetrics:
+    * - cpuUse;
+    * - freeMemory;
+    * - username;
+    * Adicionalmente, deve-se inserir também código ("code", atributo que faz referência ao nome do Pc),
+    * de um Pc previamente inserido no banco. Caso não haja um Pc cadastrado associado ao código passado
+    * no Json, a API retorna HttpStatus NOT_FOUND.
+    * */
+    @PostMapping(value = "/pcMetrics", consumes = "application/json", produces = "application/json")
+    public ResponseEntity pcMetrics(@RequestBody PcMetricsDTO metricsDTO) {
+        HttpStatus response = service.save(metricsDTO);
+        return ResponseEntity.ok(response);
     }
 
-    @PostMapping(value ="/pc", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/pc", consumes = "application/json", produces = "application/json")
     public ResponseEntity pc(@RequestBody Pc pc) {
 
         pcRepository.save(pc);

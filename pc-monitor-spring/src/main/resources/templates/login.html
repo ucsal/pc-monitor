@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="/login.css">
 </head>
 <body>
-  <h1>Olá <p th:text="${nome}"></p> </h1>
+    <h1>Olá <p th:text="${nome}"></p> </h1>
+    <th:block th:each="pc: ${pcs}">
+        <p th:text="${pc.code}"></p>
+        <p th:text="${pc.javaVersion}"></p>
+    </th:block>
 </body>
 </html>
