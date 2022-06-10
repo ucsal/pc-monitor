@@ -22,11 +22,12 @@ public class Start {
 	public static void main(String[] args) {
 
 		
-			
+		new Start();
 		
 		try {
 			String json ="";
-			json = new Gson().toJson(new PC(getData.getHostName(),getData.getJavaVersion()));
+
+			json = new Gson().toJson(new PC(getData.getHostName(),getData.getJavaVersion(),getData.getOsName(),String.valueOf(getData.getTotalRamMemory()) , getData.getUserName()));
 			sendRequest.executePost("http://localhost:8080/api",json);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -48,7 +49,7 @@ public class Start {
 
 		  }
 		}, 0, 5*(1000*60));
-		new Start();
+		
 
 	}
 	
