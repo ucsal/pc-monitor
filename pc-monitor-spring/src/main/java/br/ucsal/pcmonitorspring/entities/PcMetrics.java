@@ -15,12 +15,11 @@ public class PcMetrics {
     @JoinColumn(nullable = false, name = "pc")
     private Pc pc;
 
-
     @Column(name = "cpu_use")
-    private String cpuUSe;
+    private String cpuUse;
 
-    @Column(name = "memory_use")
-    private String memoryUse;
+    @Column(name = "free_memory")
+    private String free_memory;
 
     public PcMetrics() {}
 
@@ -36,19 +35,19 @@ public class PcMetrics {
         this.pc = pc;
     }
 
-    public String getCpuUSe() {
-        return cpuUSe;
+    public String getCpuUse() {
+        return cpuUse;
     }
 
-    public void setCpuUSe(String cpuUSe) {
-        this.cpuUSe = cpuUSe;
+    public void setCpuUse(String cpuUse) {
+        this.cpuUse = cpuUse;
     }
 
-    public String getMemoryUse() {
-        return memoryUse;
+    public String getFree_memory() {
+        return free_memory;
     }
 
-    public void setMemoryUse(String memoryUse) {
-        this.memoryUse = memoryUse;
+    public void setFree_memory(String free_memory) {
+        this.free_memory = free_memory;
     }
 }
