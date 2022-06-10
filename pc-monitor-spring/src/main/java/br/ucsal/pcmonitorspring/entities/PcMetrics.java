@@ -15,10 +15,10 @@ public class PcMetrics {
     @JoinColumn(nullable = false, name = "pc")
     private Pc pc;
 
-    @Column(name = "cpu_use")
+    @Column(name = "cpu_use", nullable = false)
     private String cpuUse;
 
-    @Column(name = "free_memory")
+    @Column(name = "free_memory", nullable = false)
     private String free_memory;
 
     public PcMetrics() {}

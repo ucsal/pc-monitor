@@ -11,19 +11,20 @@ public class Pc {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "identifier_cod")
+    @Column(name = "identifier_cod", nullable = false)
     private String identifierCod;
 
-    @Column(name = "java_version")
+    @Column(name = "java_version", nullable = false)
     private String javaVersion;
 
-    @Column(name = "total_memory")
+    @Column(name = "total_memory", nullable = false)
     private String totalMemory;
 
-    @Column(name = "os")
+    @Column(name = "os", nullable = false)
     private String os;
 
     @ManyToMany
+    @Column(nullable = false)
     private List<User> users;
 
     public Pc() {}

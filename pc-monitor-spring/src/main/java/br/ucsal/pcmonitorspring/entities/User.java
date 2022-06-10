@@ -15,7 +15,7 @@ public class User {
     private String login;
 
     @ManyToMany
-    @Column(name = "pc_ids")
+    @Column(name = "pc_ids", nullable = false)
     private List<Pc> pcIds;
 
     public User(Long id, String login, Pc pc_id) {
