@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
+
+:root {
+  --strong-black : rgba(30, 30, 30, 1);
+  --color-background : rgba(57, 57, 57, 1);
+  --button-color : rgba(0, 222, 255, 1);
+
+}
+
+*, 
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+  background-color: var(--color-background);
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-login{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-login{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.left-login{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.left-login-image{
+  width: 45vw;
+  padding-right: 40px;
+}
+
+.card-login{
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px 15px;
+  background-color: var(--strong-black);
+  border-radius: 20px;
+  box-shadow: 0px 10px 40px rgb(51, 51, 51); 
+}
+
+.card-login > img {
+  width: 70%;
+  padding-bottom: 30px;
+}
+
+
+.textfield{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.textfield > input {
+  width: 85%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  color: var(--strong-black);
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px rgb(32, 32, 32);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textfield > label {
+  width: 85%;
+  color: white;
+  margin-bottom: 10px;
+  text-align: start;
+}
+
+.btn-entrar{
+  width: 35%;
+  padding: 16px 0px;
+  margin: 25px;
+  border: none;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+  background-color: var(--button-color);
+}
+
