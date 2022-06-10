@@ -1,0 +1,1 @@
+insert into web_user (login, password, role) values ('root', '1234', 'ADMIN');
