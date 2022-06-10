@@ -10,8 +10,11 @@ public class PcMetrics {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pc_metrics_id")
     private Long id;
+    
+    //@json
+    //criar objeto dto
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(nullable = false, name = "pc")
     private Pc pc;
 
@@ -19,15 +22,29 @@ public class PcMetrics {
     private String cpuUse;
 
     @Column(name = "free_memory")
-    private String free_memory;
+    private String freeMemory;
+    
+    private String username;
+    
+    //adicionar o timestamping
 
     public PcMetrics() {}
 
     public Pc getPc() {
         return pc;
     }
+    
+    
 
-    public Long getId() {
+    public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -43,11 +60,11 @@ public class PcMetrics {
         this.cpuUse = cpuUse;
     }
 
-    public String getFree_memory() {
-        return free_memory;
+    public String getFreeMemory() {
+        return freeMemory;
     }
 
-    public void setFree_memory(String free_memory) {
-        this.free_memory = free_memory;
+    public void setFreeMemory(String freeMemory) {
+        this.freeMemory = freeMemory;
     }
 }

@@ -22,6 +22,10 @@ public class Pc {
 
     @Column(name = "os")
     private String os;
+    
+    //nullable?
+    @OneToMany(mappedBy = "pc")
+    private List<PcMetrics> metrics;
 
     public Pc() {}
 
@@ -31,8 +35,18 @@ public class Pc {
         this.totalMemory = totalMemory;
         this.os = os;
     }
+    
+    
 
-    public Long getId() {
+    public List<PcMetrics> getMetrics() {
+		return metrics;
+	}
+
+	public void setMetrics(List<PcMetrics> metrics) {
+		this.metrics = metrics;
+	}
+
+	public Long getId() {
         return id;
     }
 
