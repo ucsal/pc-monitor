@@ -23,12 +23,13 @@ public class Start {
 
 		
 		new Start();
-		
+
 		try {
 			String json ="";
 
-			json = new Gson().toJson(new PC(getData.getHostName(),getData.getJavaVersion(),getData.getOsName(),String.valueOf(getData.getTotalRamMemory()) , getData.getUserName()));
-			sendRequest.executePost("http://localhost:8080/api",json);
+			json = new Gson().toJson(new PC(getData.getHostName(),getData.getJavaVersion(),getData.getOsName(),String.valueOf(getData.getTotalRamMemory()) ));
+			System.out.println(json);
+			sendRequest.executePost("http://localhost:8080/api/pc",json);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -40,10 +41,11 @@ public class Start {
 				
 				try {
 					String json ="";
-					json = new Gson().toJson(new Metrics(String.valueOf(getData.getCpuUsagePercent()) ,String.valueOf(getData.getFreeRamMemory())) );
-					sendRequest.executePost("http://localhost:8080/api",json);
+					json = new Gson().toJson(new Metrics(String.valueOf(getData.getCpuUsagePercent()) ,String.valueOf(getData.getFreeRamMemory()), getData.getUserName()) );
+					System.out.println(json);
+					sendRequest.executePost("http://localhost:8080/api/pcMetrics",json);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 
@@ -56,41 +58,34 @@ public class Start {
 	public Start() {
 		TrayIcon trayIcon = null;
 		if (SystemTray.isSupported()) {
-			// get the SystemTray instance
+			
 			SystemTray tray = SystemTray.getSystemTray();
-			// load an image
-			final URL pngComputador = getClass().getResource("computador.png");
+			
+			final URL pngComputador = getClass().getResource("ICON.png");
 			Image image = Toolkit.getDefaultToolkit().createImage(pngComputador);
 			ActionListener exitListener = new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					// execute default action of the application
+					
 					System.out.println("Encerrado");
 					System.exit(0);
 				}
 			};
-			//	         // create a popup menu
+
 			PopupMenu popup = new PopupMenu();
-			//	         // create menu item for the default action
+	
 			MenuItem defaultItem = new MenuItem("Encerrar");
 			defaultItem.addActionListener(exitListener);
 			popup.add(defaultItem);
-			/// ... add other items
-			// construct a TrayIcon
+
 			trayIcon = new TrayIcon(image, "PC Observer", popup);
 			trayIcon.setImageAutoSize(true);
-			// set the TrayIcon properties
-			//	         trayIcon.addActionListener(listener);
-			// ...
-			// add the tray image
+
 			try {
 				tray.add(trayIcon);
 			} catch (AWTException e) {
 				System.err.println(e);
 			}
-			// ...
-		} else {
-			// disable tray option in your application or
-			// perform other actions
+			
 		}
 	}
 

@@ -20,9 +20,10 @@ public class Api {
     @Autowired
     private PcMetricsRepository metricsRepository;
 
-    @PostMapping("/pcMetrics")
+    @PostMapping(value ="/pcMetrics", consumes = "application/json", produces = "application/json")
     public ResponseEntity pcMetrics(@RequestBody PcMetrics metrics){
         metricsRepository.save(metrics);
+        System.out.println(metricsRepository.findAll());
         return ResponseEntity.ok(HttpStatus.OK);
     }
 

@@ -56,6 +56,7 @@ public class getData {
 	}
 	
 	
+	
 	public static String getHostName() throws UnknownHostException {
 
 		 return InetAddress.getLocalHost().getHostName();

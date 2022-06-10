@@ -19,9 +19,14 @@ public class PcMetrics {
     private String cpuUse;
 
     @Column(name = "free_memory")
-    private String free_memory;
+    private String freeMemory;
 
     public PcMetrics() {}
+    
+    public PcMetrics(String cpuUse, String freeMemory) {
+    	this.cpuUse = cpuUse;
+    	this.freeMemory = freeMemory;
+    }
 
     public Pc getPc() {
         return pc;
@@ -44,10 +49,10 @@ public class PcMetrics {
     }
 
     public String getFree_memory() {
-        return free_memory;
+        return freeMemory;
     }
 
     public void setFree_memory(String free_memory) {
-        this.free_memory = free_memory;
+        this.freeMemory = free_memory;
     }
 }
