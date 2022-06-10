@@ -1,5 +1,6 @@
 package br.ucsal.pcmonitorspring.controller;
 
+
 import br.ucsal.pcmonitorspring.services.WebUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,4 +27,5 @@ public class Login {
             return "/login";
         }
     }
+
 }
