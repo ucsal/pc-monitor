@@ -23,17 +23,13 @@ public class Pc {
     @Column(name = "os")
     private String os;
 
-    @ManyToMany
-    private List<User> users;
-
     public Pc() {}
 
-    public Pc(String identifierCod, String javaVersion, String totalMemory, String os, List<User> users) {
+    public Pc(String identifierCod, String javaVersion, String totalMemory, String os) {
         this.identifierCod = identifierCod;
         this.javaVersion = javaVersion;
         this.totalMemory = totalMemory;
         this.os = os;
-        this.users = users;
     }
 
     public Long getId() {
@@ -76,11 +72,4 @@ public class Pc {
         this.os = os;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 }
