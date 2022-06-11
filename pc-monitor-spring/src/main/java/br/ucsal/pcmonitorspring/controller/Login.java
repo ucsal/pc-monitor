@@ -1,7 +1,5 @@
 package br.ucsal.pcmonitorspring.controller;
 
-
-import br.ucsal.pcmonitorspring.repositories.PcRepository;
 import br.ucsal.pcmonitorspring.services.WebUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class Login {
 
     @Autowired
-    private WebUserService service;
-
-    @Autowired
-    PcRepository pcRepository;
+    private WebUserService webUserService;
 
     @GetMapping("/login")
     public String login(Model model){
@@ -25,7 +20,8 @@ public class Login {
 
     @PostMapping("/login")
     public String validate(Model model) {
-        if (service.isRegistered((String) model.getAttribute("login"))){
+        
+        if (webUserService.isRegistered((String) model.getAttribute("login"))){
             return "/dashboard/ambientes";
         }
         else {
