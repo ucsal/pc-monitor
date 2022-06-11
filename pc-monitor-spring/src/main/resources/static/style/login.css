@@ -79,7 +79,7 @@ body{
   margin: 10px 0px;
 }
 
-.textfield > input {
+.textfield .inputfield {
   width: 85%;
   border: none;
   border-radius: 10px;

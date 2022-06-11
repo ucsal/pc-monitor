@@ -11,15 +11,15 @@
 <body>
   <div class="main-login">
   <div class="left-login">
-    <form class="card-login" action="/login" method="post">
+    <form action="#" th:action="@{/login}" th:object="${webUser}" method="post" class="card-login">
       <img src="/assets/logo.png" alt="logo">
       <div class="textfield">
         <label for="login">LOGIN</label>
-        <input type="text" name="login" placeholder="Usuário" id="login">
+        <input th:field="${webUser.login}" type="text" name="login" placeholder="Usuário" id="login" class="inputfield">
       </div>
       <div class="textfield">
         <label for="password">SENHA</label>
-        <input type="password" name="senha" placeholder="Senha" id="password">
+        <input th:field="${webUser.password}" type="password" name="senha" placeholder="Senha" id="password" class="inputfield">
       </div>
       <button class="btn-entrar" type="submit">Entrar</button>
     </form>
