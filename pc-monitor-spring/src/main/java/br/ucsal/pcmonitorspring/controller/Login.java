@@ -1,5 +1,6 @@
 package br.ucsal.pcmonitorspring.controller;
 
+
 import br.ucsal.pcmonitorspring.repositories.PcRepository;
 import br.ucsal.pcmonitorspring.services.WebUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,4 +33,5 @@ public class Login {
             return "/login";
         }
     }
+
 }
