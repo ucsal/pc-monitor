@@ -17,11 +17,11 @@ public class Dashboard {
     @Autowired
     PcRepository pcRepository;
 
-    @GetMapping("/ambientes")
+    @GetMapping("/home")
     public String dashboard(Model model){
         List<Pc> pcs = pcRepository.findAll();
         model.addAttribute(pcs);
-        return "ambientes";
+        return "home";
     }
 
     @GetMapping("/pcs")
