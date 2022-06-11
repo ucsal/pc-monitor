@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class WebUserService {
 
-    @Autowired
     WebUserRepository repository;
+
+    @Autowired
+    public WebUserService(WebUserRepository repository) {
+        this.repository = repository;
+    }
 
     public boolean isRegistered(String login) {
         WebUser user = repository.findByLogin(login);
