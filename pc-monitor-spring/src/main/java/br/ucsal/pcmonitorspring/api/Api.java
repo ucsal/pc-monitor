@@ -19,12 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class Api {
 
-<<<<<<< HEAD
-    @PostMapping(value ="/pcMetrics", consumes = "application/json", produces = "application/json")
-    public ResponseEntity pcMetrics(@RequestBody PcMetrics metrics){
-        metricsRepository.save(metrics);
-        return ResponseEntity.ok(HttpStatus.OK);
-=======
     @Autowired
     private PcService pcService;
 
@@ -32,19 +26,18 @@ public class Api {
     private PcMetricsService pcMetricsService;
 
     /*
-    * Usando essa rota, o cliente deve especificar três métricas de PcMetrics:
-    * - cpuUse;
-    * - freeMemory;
-    * - username;
-    * Adicionalmente, deve-se inserir também código ("code", atributo que faz referência ao nome do Pc),
-    * de um Pc previamente inserido no banco. Caso não haja um Pc cadastrado associado ao código passado
-    * no Json, a API retorna HttpStatus NOT_FOUND.
-    * */
+     * Usando essa rota, o cliente deve especificar três métricas de PcMetrics:
+     * - cpuUse;
+     * - freeMemory;
+     * - username;
+     * Adicionalmente, deve-se inserir também código ("code", atributo que faz referência ao nome do Pc),
+     * de um Pc previamente inserido no banco. Caso não haja um Pc cadastrado associado ao código passado
+     * no Json, a API retorna HttpStatus NOT_FOUND.
+     * */
     @PostMapping(value = "/pcMetrics", consumes = "application/json", produces = "application/json")
     public ResponseEntity pcMetrics(@RequestBody PcMetricsDTO metricsDTO) {
         HttpStatus response = pcMetricsService.save(metricsDTO);
         return ResponseEntity.ok(response);
->>>>>>> lucas-moreno
     }
 
     @PostMapping(value = "/pc", consumes = "application/json", produces = "application/json")

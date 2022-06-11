@@ -15,7 +15,7 @@ public class PcMetrics {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pc_metrics_id")
     private Long id;
-    
+
     //@json
     //criar objeto dto
 
@@ -27,15 +27,11 @@ public class PcMetrics {
     private String cpuUse;
 
     @Column(name = "free_memory", nullable = false)
-<<<<<<< HEAD
-    private String free_memory;
-=======
     private String freeMemory;
 
     private String username;
-    
+
     //adicionar o timestamping
->>>>>>> lucas-moreno
 
     public PcMetrics() {}
 

@@ -16,13 +16,8 @@ public class Pc {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-<<<<<<< HEAD
-    @Column(name = "identifier_cod", nullable = false)
-    private String identifierCod;
-=======
     @Column(name = "code", nullable = false)
     private String code;
->>>>>>> lucas-moreno
 
     @Column(name = "java_version", nullable = false)
     private String javaVersion;
@@ -33,14 +28,8 @@ public class Pc {
     @Column(name = "os", nullable = false)
     private String os;
 
-<<<<<<< HEAD
-    @ManyToMany
-    @Column(nullable = false)
-    private List<User> users;
-=======
     @OneToMany(mappedBy = "pc")
     private List<PcMetrics> metrics;
->>>>>>> lucas-moreno
 
     public Pc() {}
 
