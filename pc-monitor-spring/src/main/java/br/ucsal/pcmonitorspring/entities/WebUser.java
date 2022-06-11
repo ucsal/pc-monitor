@@ -1,6 +1,8 @@
 package br.ucsal.pcmonitorspring.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
