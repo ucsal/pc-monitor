@@ -19,7 +19,6 @@ public class Login {
 
     @GetMapping("/login")
     public String login(Model model){
-        model.addAttribute("pcs", pcRepository.findAll());
         return "login";
     }
 

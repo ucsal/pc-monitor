@@ -6,6 +6,7 @@ import br.ucsal.pcmonitorspring.model.PcMetricsDTO;
 import br.ucsal.pcmonitorspring.repositories.PcMetricsRepository;
 import br.ucsal.pcmonitorspring.repositories.PcRepository;
 import br.ucsal.pcmonitorspring.services.PcMetricsService;
+import br.ucsal.pcmonitorspring.services.PcService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class Api {
 
     @Autowired
-    private PcRepository pcRepository;
+    private PcService pcService;
 
     @Autowired
-    PcMetricsService service;
+    private PcMetricsService pcMetricsService;
 
     /*
     * Usando essa rota, o cliente deve especificar três métricas de PcMetrics:
@@ -35,18 +36,14 @@ public class Api {
     * */
     @PostMapping(value = "/pcMetrics", consumes = "application/json", produces = "application/json")
     public ResponseEntity pcMetrics(@RequestBody PcMetricsDTO metricsDTO) {
-        HttpStatus response = service.save(metricsDTO);
+        HttpStatus response = pcMetricsService.save(metricsDTO);
         return ResponseEntity.ok(response);
     }
 
     @PostMapping(value = "/pc", consumes = "application/json", produces = "application/json")
     public ResponseEntity pc(@RequestBody Pc pc) {
-
-        pcRepository.save(pc);
-
-        System.out.println(pcRepository.findAll());
-
-        return ResponseEntity.ok(HttpStatus.OK);
+        HttpStatus response = pcService.save(pc);
+        return ResponseEntity.ok(response);
     }
 
 }

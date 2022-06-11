@@ -1,10 +1,12 @@
 package br.ucsal.pcmonitorspring.entities;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Data
+@ToString
 @Entity
 @Table(name = "pc_metrics")
 public class PcMetrics {

@@ -1,5 +1,6 @@
 package br.ucsal.pcmonitorspring.services;
 
+import br.ucsal.pcmonitorspring.entities.Pc;
 import br.ucsal.pcmonitorspring.model.PcMetricsDTO;
 import br.ucsal.pcmonitorspring.repositories.PcMetricsRepository;
 import br.ucsal.pcmonitorspring.repositories.PcRepository;
@@ -14,6 +15,8 @@ public class PcMetricsService {
 
     PcRepository pcRepository;
 
+
+
     @Autowired
 
     public PcMetricsService(PcMetricsRepository pcMetricsRepository, PcRepository pcRepository) {
@@ -21,10 +24,12 @@ public class PcMetricsService {
         this.pcRepository = pcRepository;
     }
 
+
     public HttpStatus save(PcMetricsDTO metricsDTO) {
-        if (pcRepository.findByCode(metricsDTO.getPcCode()) == null)
+        Pc pc = pcRepository.findByCode(metricsDTO.getPcCode());
+        if (pc == null)
             return HttpStatus.NOT_FOUND;
-        pcMetricsRepository.create(metricsDTO.getCpuUse(), metricsDTO.getFreeMemory(), metricsDTO.getUsername(), pcRepository.findByCode(metricsDTO.getPcCode()));
-        return HttpStatus.OK;
+        pcMetricsRepository.create(metricsDTO.getCpuUse(), metricsDTO.getFreeMemory(), metricsDTO.getUsername(), pc);
+                return HttpStatus.OK;
     }
 }
