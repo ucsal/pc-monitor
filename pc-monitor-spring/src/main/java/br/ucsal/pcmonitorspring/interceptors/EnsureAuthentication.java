@@ -11,14 +11,11 @@ public class EnsureAuthentication implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HttpSession session = request.getSession();
-        String se = (String) session.getAttribute("login");
-
-        if (session.getAttribute("login") == null){
+        if (request.getSession().getAttribute("login") == null){
             System.out.println("BLOCK");
+            response.sendRedirect("/login");
             return false;
         }
-
-        return HandlerInterceptor.super.preHandle(request, response, handler);
+        return true;
     }
 }
