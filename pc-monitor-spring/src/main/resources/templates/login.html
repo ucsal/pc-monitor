@@ -11,7 +11,7 @@
 <body>
   <div class="main-login">
   <div class="left-login">
-    <form action="#" th:action="@{/login}" th:object="${webUser}" method="post" class="card-login">
+    <form th:action="@{/login}" th:object="${webUser}" method="post" class="card-login">
       <img src="/assets/logo.png" alt="logo">
       <div class="textfield">
         <label for="login">LOGIN</label>
@@ -22,6 +22,11 @@
         <input th:field="${webUser.password}" type="password" name="senha" placeholder="Senha" id="password" class="inputfield">
       </div>
       <button class="btn-entrar" type="submit">Entrar</button>
+
+      <span th:if="${erro != null}">
+        <p th:text="${erro}" class="erro"> Erro </p>
+      </span>
+
     </form>
 
   </div>
