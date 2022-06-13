@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
+
+:root {
+  --strong-black : rgba(30, 30, 30, 1);
+  --color-background : rgba(57, 57, 57, 1);
+  --button-color : rgba(0, 222, 255, 1);
+}
+
+*, 
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+    background-color: var(--color-background);
+    font-family: 'Roboto', sans-serif;
+  }
+
+.topbar {
+    background-color: var(--strong-black);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 0px 0px 35px 35px;
+    justify-content: space-between;
+    padding: 0px 100px;
+    height: 7vh;
+}
+
+.topbar > a {
+    text-decoration: none;
+    color: var(--button-color);
+}
+
+
+.logo {
+    width: 170px;
+}
+
+.actual-page {
+    color: azure !important;
+}
+
+.logout {
+    width: 20px;
+    fill: var(--button-color);
+}
+
+.content > h1 {
+    color: white;
+    font-weight: 600;
+    margin: 64px 96px 0px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    font-size: 40pt;
+}
+
+.computers {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 16px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 64px;
+}
+
+.computer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.computer {
+    width: 120px;
+    height: 80px;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
+    background-color: var(--button-color);
+  }

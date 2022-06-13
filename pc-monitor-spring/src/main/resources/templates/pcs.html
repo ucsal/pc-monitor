@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="/style/home.css">
+</head>
+<body>
+<div class="topbar">
+  <img src="/assets/logo.png" class="logo" alt="">
+  <a href="/home">HOME</a>
+  <a href="/cadastro">CADASTRAR USUARIO</a>
+  <a href="/logout" class = "btn-logout" >LOGOUT</a>
+</div>
+
+<div class="content">
+  <h1>SEUS COMPUTADORES:</h1>
+  <div>
+    <table>
+      <th:block th:each="pc : ${pcs}">
+        <tr>
+          <td th:text="${pc.code}">...</td>
+          <td th:text="${pc.javaVersion}">...</td>
+          <td th:text="${pc.os}">...</td>
+        </tr>
+        <tr>
+          <td colspan="2" th:text="${pc.os}">...</td>
+        </tr>
+      </th:block>
+    </table>
+
+  </div>
+</div>
+</body>
+</html>
