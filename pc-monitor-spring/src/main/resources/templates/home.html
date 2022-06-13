@@ -10,30 +10,17 @@
 <body>
     <div class="topbar">
         <img src="/assets/logo.png" class="logo" alt="">
-        <a href="/home">HOME</a>
-        <a href="cadastro.html">CADASTRAR USUARIO</a>
+        <a href="/dashboard/home" class="actual-page">HOME</a>
+        <a href="/cadastro">CADASTRAR USUARIO</a>
         <a href="/logout" class = "btn-logout" >LOGOUT</a>
     </div>
 
     <div class="content">
-        <h1>SEUS AMBIENTES:</h1>
-        <div class="buttons">
-            <button class="btn-1">LAMI 1</button>
-            <button class="btn-1">LAMI 2</button>
-            <button class="btn-1">LAMI 3</button>
-            <button class="btn-1">LAMI 4</button>
-            <button class="btn-1">LAMI 5</button>
-            <button class="btn-1">LAMI 6</button>
-            <button class="btn-1">LAMI 7</button>
-            <button class="btn-1">LAMI 8</button>
-            <button class="btn-1">LAMI 1</button>
-            <button class="btn-1">LAMI 2</button>
-            <button class="btn-1">LAMI 3</button>
-            <button class="btn-1">LAMI 4</button>
-            <button class="btn-1">LAMI 5</button>
-            <button class="btn-1">LAMI 6</button>
-            <button class="btn-1">LAMI 7</button>
-            <button class="btn-1">CRIAR +</button>
+        <h1>SEUS COMPUTADORES:</h1>
+        <div class="computers">
+            <div class="computer-wrapper" th:each="pc : ${pcs}">
+                <button class="computer" th:text="${pc.code}"></button>
+            </div>
         </div>
     </div>
 </body>

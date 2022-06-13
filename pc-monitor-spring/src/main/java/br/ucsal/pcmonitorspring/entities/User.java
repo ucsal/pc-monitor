@@ -1,8 +1,13 @@
 package br.ucsal.pcmonitorspring.entities;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "user")
 public class User {
@@ -22,27 +27,5 @@ public class User {
         this.id = id;
         this.login = login;
         this.pcIds.add(pc_id);
-    }
-
-    public User() {}
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public List<Pc> getPcIds() {
-        return pcIds;
-    }
-
-    public void setPcIds(List<Pc> pcIds) {
-        this.pcIds = pcIds;
     }
 }

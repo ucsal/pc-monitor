@@ -20,13 +20,7 @@ public class Dashboard {
     @GetMapping("/home")
     public String dashboard(Model model){
         List<Pc> pcs = pcRepository.findAll();
-        model.addAttribute(pcs);
+        model.addAttribute("pcs", pcs);
         return "home";
-    }
-
-    @GetMapping("/pcs")
-    public String pcs(Model model) {
-        model.addAttribute("pcs", pcRepository.findAll());
-        return "pcs";
     }
 }
