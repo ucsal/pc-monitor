@@ -40,6 +40,15 @@ public class Api {
         return ResponseEntity.ok(response);
     }
 
+
+    /*
+    * Usando essa rota, o cliente deve especificar quatro métricas de Pc:
+    * - code
+    * - javaVersion
+    * - totalMemory
+    * - os
+    *
+    * */
     @PostMapping(value = "/pc", consumes = "application/json", produces = "application/json")
     public ResponseEntity pc(@RequestBody Pc pc) {
         HttpStatus response = pcService.save(pc);

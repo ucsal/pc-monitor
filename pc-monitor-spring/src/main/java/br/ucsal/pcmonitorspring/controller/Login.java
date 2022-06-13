@@ -9,15 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
-
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class Login {
+
     @Autowired
     private WebUserService webUserService;
+
     @Autowired
     private HttpSession session;
 
@@ -34,9 +33,13 @@ public class Login {
     public RedirectView validate(@ModelAttribute("webUser") WebUserModel webUser, Model model) {
 
         if (webUserService.isRegistered(webUser.getLogin())){
-            if (session.getAttribute("erro") != null)
+            if (session.getAttribute("erro") != null){
                 session.removeAttribute("erro");
+            }
             session.setAttribute("login", webUser.getLogin());
+
+            session.setAttribute("role", webUserService.getWebUserRole(webUser.getLogin()));
+
             return new RedirectView("/dashboard/home");
         }
         else {

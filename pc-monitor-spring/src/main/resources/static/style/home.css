@@ -41,6 +41,10 @@ body{
     width: 170px;
 }
 
+.actual-page {
+    color: azure !important;
+}
+
 .logout {
     width: 20px;
     fill: var(--button-color);
@@ -56,16 +60,25 @@ body{
     font-size: 40pt;
 }
 
-.buttons {
+.computers {
     display: grid;
     grid-template-columns: repeat(5,1fr);
-    
+    grid-gap: 16px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 64px;
 }
 
-.btn-1{
-    width: 35%;
-    padding: 16px 0px;
-    margin: 64px 96px 0px;
+.computer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.computer {
+    width: 120px;
+    height: 80px;
+    padding: 16px;
     border: none;
     border-radius: 8px;
     text-transform: uppercase;

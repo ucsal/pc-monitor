@@ -10,5 +10,6 @@ public class InterceptorsMapper implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new EnsureAuthentication()).addPathPatterns("/dashboard/*");
+        registry.addInterceptor(new EnsureAdmin()).addPathPatterns("/cadastro");
     }
 }
