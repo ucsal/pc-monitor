@@ -38,10 +38,10 @@ public class Start {
 		timer.scheduleAtFixedRate(new TimerTask() {
 		  @Override
 		  public void run() {
-				
 				try {
 					String json ="";
-					json = new Gson().toJson(new Metrics(String.valueOf(getData.getCpuUsagePercent()) ,String.valueOf(getData.getFreeRamMemory()), getData.getUserName()) );
+					Metrics metrics =  new Metrics(getData.getHostName(),String.valueOf(getData.getCpuUsagePercent()) ,String.valueOf(getData.getFreeRamMemory()), getData.getUserName());
+					json = new Gson().toJson(metrics);
 					System.out.println(json);
 					sendRequest.executePost("http://localhost:8080/api/pcMetrics",json);
 				} catch (IOException e1) {
@@ -50,7 +50,7 @@ public class Start {
 				}
 
 		  }
-		}, 0, 5*(1000*60));
+		}, 0, (1000*30));
 		
 
 	}

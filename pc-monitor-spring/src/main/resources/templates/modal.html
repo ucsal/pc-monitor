@@ -8,23 +8,24 @@
     <label>Versão do Java: </label>
     <span th:text="${computer.javaVersion}"></span> <br>
 
-    <label>Memoria Total: </label>
+    <label>Memoria Total (GB): </label>
     <span th:text="${computer.totalMemory}"></span> <br>
 
     <label>Sistema Operacional: </label>
     <span th:text="${computer.os}"></span>
+    <br>
 
     <h4>Última Metrica:</h4>
     <div class="last-metric" th:if="${computer.metrics.size > 0}">
-        <label>Cpu use: </label>
+        <label>CPU em uso (%) </label>
         <span th:text="${computer.metrics.get(computer.metrics.size - 1).cpuUse}"></span> <br>
 
-        <label>Memoria livre: </label>
+        <label>Memória Livre (GB):</label>
         <span th:text="${computer.metrics.get(computer.metrics.size - 1).freeMemory}"></span> <br>
 
-        <label>Nome de usuario: </label>
+        <label>Usuário Logado: </label>
         <span th:text="${computer.metrics.get(computer.metrics.size - 1).username}"></span>
     </div>
 
-    <a class="metrics-button" th:attr="href='/metrics?pcCode='+${computer.code}">Ver todas metricas</a>
+    <a class="metrics-button" th:attr="href='/dashboard/metrics?pcCode='+${computer.code}">Ver todas metricas</a>
 </div>

@@ -12,7 +12,7 @@
 <body>
 <div class="topbar">
     <img src="/assets/logo.png" class="logo" alt="">
-    <a href="/home">HOME</a>
+    <a href="/dashboard/home">HOME</a>
     <a href="/cadastro">CADASTRAR USUARIO</a>
     <a href="/logout" class="btn-logout">LOGOUT</a>
 </div>
@@ -23,9 +23,9 @@
         <table class="table table-dark table-striped mx-auto w-50">
             <thead>
                 <tr>
-                    <th>CPU em uso:</th>
-                    <th>Memoria livre:</th>
-                    <th>Uruario logado:</th>
+                    <th>CPU em uso (%):</th>
+                    <th>Memória Livre (GB):</th>
+                    <th>Usuário Logado:</th>
                 </tr>
             </thead>
             <tbody  th:each="metric : ${metrics}">

@@ -43,16 +43,16 @@ public class getData {
 	}
 	/**
 	 * run a command in terminal to retrieve free memory ram data
-	 * @return free memory RAM in kb
+	 * @return free memory RAM in Megabyte
 	 * **/
 	public static Integer getFreeRamMemory() throws IOException {
-	   return  Integer.valueOf(getFromTerminal("wmic os get freephysicalmemory"));
+	   return  Integer.valueOf(getFromTerminal("wmic os get freephysicalmemory"))/1024/1024;
 	}
 	/**run a command in terminal to retrieve total memory ram data
-	 * @return total memory RAM in kb
+	 * @return total memory RAM in Megabyte
 	 * **/
 	public static Long getTotalRamMemory() throws IOException {
-		 return  Long.valueOf(getFromTerminal("wmic ComputerSystem get TotalPhysicalMemory"))/1024;
+		 return  Long.valueOf(getFromTerminal("wmic ComputerSystem get TotalPhysicalMemory"))/1024/1024/1024;
 	}
 	
 	

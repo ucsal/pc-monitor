@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -22,5 +23,16 @@ public class Dashboard {
         List<Pc> pcs = pcRepository.findAll();
         model.addAttribute("pcs", pcs);
         return "home";
+    }
+
+
+    @GetMapping("/metrics")
+    public String metrics(@RequestParam String pcCode, Model model){
+        model.addAttribute("metrics",pcRepository.findByCode(pcCode).getMetrics());
+        model.addAttribute("pcCode", pcCode);
+        System.out.println(pcCode);
+
+        return("metrics");
+
     }
 }

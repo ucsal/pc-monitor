@@ -22,7 +22,14 @@ public class PcService {
     }
 
     public HttpStatus save(Pc pc) {
+        Pc pc1 = pcRepository.findByCode(pc.getCode());
+        if (pc1 != null){
+
+            pc.setId(pc1.getId());
+        }
+
         pcRepository.save(pc);
+
         return HttpStatus.OK;
     }
 }
