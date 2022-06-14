@@ -1,11 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="/login.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBSERVER</title>
+  <link rel="stylesheet" href="/style/login.css">
+  <link rel="shortcut icon" href="/assets/ICON.png" type="image/x-icon"/>
 </head>
 <body>
-  <h1>Olá <p th:text="${nome}"></p> </h1>
+  <div class="main-login">
+  <div class="left-login">
+    <form th:action="@{/login}" th:object="${webUser}" method="post" class="card-login">
+      <img src="/assets/logo.png" alt="logo">
+      <div class="textfield">
+        <label for="login">LOGIN</label>
+        <input th:field="${webUser.login}" type="text" name="login" placeholder="Usuário" id="login" class="inputfield">
+      </div>
+      <div class="textfield">
+        <label for="password">SENHA</label>
+        <input th:field="${webUser.password}" type="password" name="senha" placeholder="Senha" id="password" class="inputfield">
+      </div>
+      <button class="btn-entrar" type="submit">Entrar</button>
+
+      <span th:if="${erro != null}">
+        <p th:text="${erro}" class="erro"> Erro </p>
+      </span>
+
+    </form>
+
+  </div>
+  <div class="right-login">
+    <img src="/assets/banner_login.svg" class="left-login-image" alt="">
+  </div>
+
+  </div>
 </body>
 </html>

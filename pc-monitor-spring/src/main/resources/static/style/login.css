@@ -52,6 +52,14 @@ body{
   padding-right: 40px;
 }
 
+.erro {
+  color: tomato;
+  border: solid 3px;
+  border-radius: 3px;
+  transition-property: all;
+  transition: all 0.5s;
+}
+
 .card-login{
   width: 60%;
   display: flex;
@@ -79,7 +87,7 @@ body{
   margin: 10px 0px;
 }
 
-.textfield > input {
+.textfield .inputfield {
   width: 85%;
   border: none;
   border-radius: 10px;

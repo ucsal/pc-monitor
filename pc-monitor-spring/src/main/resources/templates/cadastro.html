@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CADASTRO</title>
-  <link rel="stylesheet" href="style/cadastro.css">
-  <link rel="shortcut icon" href="/assets/ICON.png" type="image/x-icon"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADASTRO</title>
+    <link rel="stylesheet" href="/style/cadastro.css">
+    <link rel="shortcut icon" href="/assets/ICON.png" type="image/x-icon"/>
 </head>
 <body>
-    <div class="topbar">
-        <img src="/assets/logo.png" class="logo" alt="">
-        <a href="">HOME</a>
-        <a href="cadastro.html">CADASTRAR USUARIO</a>
-        <a href="" class = "btn-logout" >LOGOUT</a>        
-    </div>
-  <div class="main-login">
-  <div class="left-login">
-    <div class="card-login">
-      <h1>CADASTRO</h1>
-      <div class="textfield">
-        <label for="usuario">LOGIN</label>
-        <input type="text" name="usuario" placeholder="Usuário">
-      </div>
-      <div class="textfield">
-        <label for="usuario">SENHA</label>
-        <input type="password" name="senha" placeholder="Senha">
-      </div>
-      <div class="check-register">
-          <input type="checkbox" name="ADMINASTROR" id="">
-          <label for="" class= "check-text" >ADMINASTROR</label>
-          <input type="checkbox" name="SUPERVISOR" id="">
-          <label for="" class= "check-text">SUPERVISOR</label>
-      </div>
-      <button class="btn-entrar">Cadastrar</button>
-    </div>
-  </div>
-  <div class="right-login">
-    <img src="/assets/banner_cadastro.svg" class="left-login-image" alt="">
-  </div>
 
-  </div>
+<div class="alert failed" role="alert" th:if="${failed} != null">
+    <span th:text="${failed}"></span>
+    <a href="/removeToast">x</a>
+</div>
+<div class="alert success" role="alert" th:if="${success} != null">
+    <span th:text="${success}"></span>
+    <a href="/removeToast">x</a>
+</div>
+
+<div class="topbar">
+    <img src="/assets/logo.png" class="logo" alt="">
+    <a href="/dashboard/home">HOME</a>
+    <a href="#" class="actual-page">CADASTRAR USUARIO</a>
+    <a href="/logout" class="btn-logout">LOGOUT</a>
+</div>
+<div class="main-login">
+    <div class="left-login">
+        <form th:action="@{/cadastro}" th:object="${userModel}" method="post" class="card-login">
+            <h1>CADASTRO</h1>
+            <div class="textfield">
+                <label for="usuario">LOGIN</label>
+                <input th:field="${userModel.login}" id="usuario" type="text" name="usuario" placeholder="Usuário">
+            </div>
+            <div class="textfield">
+                <label for="password">SENHA</label>
+                <input th:field="${userModel.password}" id="password" type="password" name="senha" placeholder="Senha">
+            </div>
+            <div class="check-register">
+                <input th:field="${userModel.role}" type="radio" name="role-input" id="admin" value="ADMIN">
+                <label for="admin" class="check-text">ADMINISTRADOR</label>
+                <input th:field="${userModel.role}" type="radio" name="role-input" id="supervisor" value="SUPERVISOR">
+                <label for="supervisor" class="check-text">SUPERVISOR</label>
+            </div>
+            <button class="btn-entrar">Cadastrar</button>
+        </form>
+    </div>
+    <div class="right-login">
+        <img src="/assets/banner_cadastro.svg" class="left-login-image" alt="">
+    </div>
+
+</div>
 </body>
 </html>

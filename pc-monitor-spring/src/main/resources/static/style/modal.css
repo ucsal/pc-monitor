@@ -1,0 +1,23 @@
+label {
+    font-weight: bold;
+}
+
+.last-metric {
+    margin-left: 16px;
+}
+
+.metrics-button {
+    background-color: #04AA6D;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: sans-serif;
+    padding: 6px 12px;
+    text-decoration: none;
+    color: black;
+    margin-top: 12px;
+}
+
+.metrics-button:hover {
+    color: gray;
+    background-color: #035e3f;
+}

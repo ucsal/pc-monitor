@@ -1,8 +1,13 @@
 package br.ucsal.pcmonitorspring.entities;
 
+import lombok.Data;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Data
+@ToString
 @Entity
 @Table(name = "pc")
 public class Pc {
@@ -11,76 +16,27 @@ public class Pc {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "identifier_cod")
-    private String identifierCod;
+    @Column(name = "code", nullable = false)
+    private String code;
 
-    @Column(name = "java_version")
+    @Column(name = "java_version", nullable = false)
     private String javaVersion;
 
-    @Column(name = "total_memory")
+    @Column(name = "total_memory", nullable = false)
     private String totalMemory;
 
-    @Column(name = "os")
+    @Column(name = "os", nullable = false)
     private String os;
 
-    @ManyToMany
-    private List<User> users;
+    @OneToMany(mappedBy = "pc")
+    private List<PcMetrics> metrics;
 
     public Pc() {}
 
-    public Pc(String identifierCod, String javaVersion, String totalMemory, String os, List<User> users) {
-        this.identifierCod = identifierCod;
+    public Pc(String identifierCod, String javaVersion, String totalMemory, String os) {
+        this.code = identifierCod;
         this.javaVersion = javaVersion;
         this.totalMemory = totalMemory;
         this.os = os;
-        this.users = users;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getIdentifierCod() {
-        return identifierCod;
-    }
-
-    public void setIdentifierCod(String identifierCod) {
-        this.identifierCod = identifierCod;
-    }
-
-    public String getJavaVersion() {
-        return javaVersion;
-    }
-
-    public void setJavaVersion(String javaVersion) {
-        this.javaVersion = javaVersion;
-    }
-
-    public String getTotalMemory() {
-        return totalMemory;
-    }
-
-    public void setTotalMemory(String totalMemory) {
-        this.totalMemory = totalMemory;
-    }
-
-    public String getOs() {
-        return os;
-    }
-
-    public void setOs(String os) {
-        this.os = os;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
     }
 }
