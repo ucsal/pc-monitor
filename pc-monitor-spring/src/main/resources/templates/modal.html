@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<head>
+    <link rel="stylesheet" href="/style/modal.css">
+</head>
+<div th:fragment="modal (computer)" class="modal-body">
+    <h1 th:text="${computer.code}" ></h1>
+
+    <label>Versão do Java: </label>
+    <span th:text="${computer.javaVersion}"></span> <br>
+
+    <label>Memoria Total: </label>
+    <span th:text="${computer.totalMemory}"></span> <br>
+
+    <label>Sistema Operacional: </label>
+    <span th:text="${computer.os}"></span>
+
+    <h4>Última Metrica:</h4>
+    <div class="last-metric" th:if="${computer.metrics.size > 0}">
+        <label>Cpu use: </label>
+        <span th:text="${computer.metrics.get(computer.metrics.size - 1).cpuUse}"></span> <br>
+
+        <label>Memoria livre: </label>
+        <span th:text="${computer.metrics.get(computer.metrics.size - 1).freeMemory}"></span> <br>
+
+        <label>Nome de usuario: </label>
+        <span th:text="${computer.metrics.get(computer.metrics.size - 1).username}"></span>
+    </div>
+    <a class="metrics-button" href="">Ver todas metricas</a>
+</div>
