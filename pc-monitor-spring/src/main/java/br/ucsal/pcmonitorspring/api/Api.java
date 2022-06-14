@@ -25,6 +25,7 @@ public class Api {
     @Autowired
     private PcMetricsService pcMetricsService;
 
+
     /*
      * Usando essa rota, o cliente deve especificar três métricas de PcMetrics:
      * - cpuUse;
@@ -38,6 +39,7 @@ public class Api {
     public ResponseEntity pcMetrics(@RequestBody PcMetricsDTO metricsDTO) {
         HttpStatus response = pcMetricsService.save(metricsDTO);
         return ResponseEntity.ok(response);
+
     }
 
 

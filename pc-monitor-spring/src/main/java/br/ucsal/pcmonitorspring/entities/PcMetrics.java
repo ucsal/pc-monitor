@@ -26,8 +26,10 @@ public class PcMetrics {
     @Column(name = "cpu_use", nullable = false)
     private String cpuUse;
 
+
     @Column(name = "free_memory", nullable = false)
     private String freeMemory;
+
 
     private String username;
 
@@ -41,4 +43,6 @@ public class PcMetrics {
         this.username = username;
         this.pc = pc;
     }
+
 }
+
