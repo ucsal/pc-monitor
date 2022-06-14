@@ -27,6 +27,9 @@ public class getData {
 		String ignore = arr[arr.length-1];
 	    while (true) {
 	    	String str = reader.readLine();
+			if(str==null){
+				return "-1";
+			}
 	    	if(!str.trim().equalsIgnoreCase(ignore) && !str.isBlank()) {
 	    		return str.trim();
 	    	}

@@ -8,7 +8,7 @@
     <label>Versão do Java: </label>
     <span th:text="${computer.javaVersion}"></span> <br>
 
-    <label>Memoria Total (GB): </label>
+    <label>Memoria RAM Total (GB): </label>
     <span th:text="${computer.totalMemory}"></span> <br>
 
     <label>Sistema Operacional: </label>
@@ -20,7 +20,7 @@
         <label>CPU em uso (%) </label>
         <span th:text="${computer.metrics.get(computer.metrics.size - 1).cpuUse}"></span> <br>
 
-        <label>Memória Livre (GB):</label>
+        <label>Memória RAM Livre (GB):</label>
         <span th:text="${computer.metrics.get(computer.metrics.size - 1).freeMemory}"></span> <br>
 
         <label>Usuário Logado: </label>
