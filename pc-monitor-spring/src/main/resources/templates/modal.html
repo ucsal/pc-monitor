@@ -25,5 +25,6 @@
         <label>Nome de usuario: </label>
         <span th:text="${computer.metrics.get(computer.metrics.size - 1).username}"></span>
     </div>
-    <a class="metrics-button" href="">Ver todas metricas</a>
+
+    <a class="metrics-button" th:attr="href='/metrics?pcCode='+${computer.code}">Ver todas metricas</a>
 </div>
