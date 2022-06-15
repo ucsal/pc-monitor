@@ -22,8 +22,7 @@ public class Cadastro {
     @GetMapping("/cadastro")
     public String cadastro(Model model) {
         model.addAttribute("userModel", new WebUserDTO());
-        model.addAttribute("success", null);
-        model.addAttribute("failed", null);
+
         return "cadastro";
     }
 
@@ -43,8 +42,6 @@ public class Cadastro {
     @GetMapping("/removeToast")
     public RedirectView removeToast(Model model) {
         model.addAttribute("userModel", new WebUserDTO());
-        model.addAttribute("success", null);
-        model.addAttribute("failed", null);
 
         return new RedirectView("/cadastro");
     }

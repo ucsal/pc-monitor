@@ -10,11 +10,11 @@
 </head>
 <body>
 
-<div class="alert failed" role="alert" th:if="${failed} != null">
+<div class="alert failed" role="alert" th:if="${failed}">
     <span th:text="${failed}"></span>
     <a href="/removeToast">x</a>
 </div>
-<div class="alert success" role="alert" th:if="${success} != null">
+<div class="alert success" role="alert" th:if="${success}">
     <span th:text="${success}"></span>
     <a href="/removeToast">x</a>
 </div>
