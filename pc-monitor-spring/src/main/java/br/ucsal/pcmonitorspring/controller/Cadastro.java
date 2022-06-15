@@ -38,12 +38,5 @@ public class Cadastro {
 
         return "cadastro";
     }
-
-    @GetMapping("/removeToast")
-    public RedirectView removeToast(Model model) {
-        model.addAttribute("userModel", new WebUserDTO());
-
-        return new RedirectView("/cadastro");
-    }
 }
 
