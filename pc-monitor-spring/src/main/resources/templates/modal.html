@@ -17,11 +17,15 @@
 
     <h4>Última Metrica:</h4>
     <div class="last-metric" th:if="${computer.metrics.size > 0}">
-        <label>CPU em uso (%) </label>
-        <span th:text="${computer.metrics.get(computer.metrics.size - 1).cpuUse}"></span> <br>
+        <label>CPU em uso (%):  </label>
+        <span th:if="${computer.metrics.get(computer.metrics.size - 1).cpuUse=='-1'}" th:text="Indisponível"></span>
+        <span th:if="${computer.metrics.get(computer.metrics.size - 1).cpuUse!='-1'}" th:text="${computer.metrics.get(computer.metrics.size - 1).cpuUse}"></span>
+        <br>
+
 
         <label>Memória RAM Livre (GB):</label>
         <span th:text="${computer.metrics.get(computer.metrics.size - 1).freeMemory}"></span> <br>
+
 
         <label>Usuário Logado: </label>
         <span th:text="${computer.metrics.get(computer.metrics.size - 1).username}"></span>
